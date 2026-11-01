@@ -21,39 +21,3 @@
 
 Cần Node.js >= 18 và một địa chỉ endpoint JSON-RPC của mạng thử nghiệm (ví dụ Sepolia). Đoạn code chỉ **đọc dữ liệu**, không chuyển tiền.
 
-**Windows PowerShell:**
-
-```powershell
-$env:RPC_URL="https://YOUR_SEPOLIA_RPC_ENDPOINT"
-$env:ACCOUNT_ADDRESS="0x0000000000000000000000000000000000000000"
-node code/chapter2/json_rpc_demo.mjs
-```
-
-**Linux/macOS:**
-
-```bash
-RPC_URL="https://YOUR_SEPOLIA_RPC_ENDPOINT" \
-ACCOUNT_ADDRESS="0x0000000000000000000000000000000000000000" \
-node code/chapter2/json_rpc_demo.mjs
-```
-
-Không đưa API key, seed phrase hoặc private key vào GitHub.
-
-## Đưa lên GitHub
-
-```bash
-git init
-git add .
-git commit -m "docs: summarize chapters 1-2 and add example code"
-git branch -M main
-git remote add origin https://github.com/USERNAME/REPO.git
-git push -u origin main
-```
-
-## Nguồn gốc code
-
-- `SimpleCoin_Original_2019.sol`: Mã được chép từ **Listing 1.1** trong sách, chỉ thêm comment chú thích. Phần sample code của sách được công bố theo Apache License 2.0.
-- `SimpleCoin_Modern.sol`: Bản điều chỉnh cho Solidity hiện đại, **không phải code gốc**.
-- `json_rpc_demo.mjs`: Ví dụ tự biên soạn để minh họa Chương 2, **không phải code gốc**.
-
-Báo cáo/README là tài liệu đọc sách; chưa có kết quả kiểm thử được xác nhận trên máy của sinh viên.
