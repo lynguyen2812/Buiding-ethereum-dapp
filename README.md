@@ -6,7 +6,6 @@
 - [Đọc báo cáo ngắn gọn](BAO_CAO_NGAN.md)
 - [Source code gốc SimpleCoin — Chương 1](code/chapter1/SimpleCoin_Original_2019.sol)
 - [SimpleCoin hiện đại — có thêm bảo vệ và event (code bổ sung)](code/chapter1/SimpleCoin_Modern.sol)
-- [Ví dụ JSON-RPC Chương 2 (code bổ sung)](code/chapter2/json_rpc_demo.mjs)
 
 ## Chạy source code Chương 1 trên Remix
 
@@ -17,7 +16,4 @@
 5. Gọi `transfer(B, 150)` bằng tài khoản A, rồi kiểm tra `coinBalance(A) = 9850` và `coinBalance(B) = 150`.
 6. Thử chuyển nhiều hơn số dư để quan sát giao dịch bị revert trong phiên bản hiện đại.
 
-## Chạy minh họa JSON-RPC Chương 2
-
-Cần Node.js >= 18 và một địa chỉ endpoint JSON-RPC của mạng thử nghiệm (ví dụ Sepolia). Đoạn code chỉ **đọc dữ liệu**, không chuyển tiền.
 

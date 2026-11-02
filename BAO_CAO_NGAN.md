@@ -87,9 +87,6 @@ Theo hình 2.1 của sách, một node gồm **Ethereum Client** và **Blockchai
 
 Ethereum được Vitalik Buterin đề xuất năm 2013 và đi vào hoạt động năm 2015. Sách đề cập sự kiện **The DAO (2016)** như một bài học về bảo mật Smart Contract và sự phân tách thành Ethereum và Ethereum Classic. Quá trình phát triển Ethereum có sự tham gia của cộng đồng và sử dụng cơ chế đề xuất cải tiến **EIP (Ethereum Improvement Proposal)**.
 
-### 2.4. Minh họa JSON-RPC (bổ sung, không phải code trong sách)
-
-File [`code/chapter2/json_rpc_demo.mjs`](code/chapter2/json_rpc_demo.mjs) là ví dụ Node.js **đọc dữ liệu Blockchain** bằng `eth_chainId`, `eth_blockNumber` và `eth_getBalance`. Mục đích là minh họa vai trò JSON-RPC; Chương 2 của sách không cung cấp mã nguồn thực hành hoàn chỉnh tương ứng.
 
 ## 3. Liên hệ với đồ án Web3 Freelance Platform
 
@@ -180,51 +177,3 @@ contract SimpleCoinModern {
     }
 }
 ```
-
-### C. Ví dụ JSON-RPC cho Chương 2 (bổ sung)
-
-```javascript
-/**
- * Chapter 2 illustration added for this report (NOT original book source code).
- * Node.js 18+. Read-only JSON-RPC requests to an Ethereum node.
- * Set RPC_URL to an Ethereum testnet RPC endpoint before running.
- * Optional: set ACCOUNT_ADDRESS to read an ETH balance.
- * No wallet or private key required.
- */
-
-const rpcUrl = process.env.RPC_URL;
-if (!rpcUrl) {
-  console.error('Missing RPC_URL. Configure a testnet JSON-RPC endpoint.');
-  process.exit(1);
-}
-
-async function rpc(method, params = []) {
-  const response = await fetch(rpcUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params })
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const data = await response.json();
-  if (data.error) throw new Error(JSON.stringify(data.error));
-  return data.result;
-}
-
-const chainIdHex = await rpc('eth_chainId');
-const blockHex = await rpc('eth_blockNumber');
-console.log('Chain ID:', Number(BigInt(chainIdHex)));
-console.log('Latest block number:', Number(BigInt(blockHex)));
-
-const address = process.env.ACCOUNT_ADDRESS;
-if (address) {
-  if (!/^0x[0-9a-fA-F]{40}$/.test(address)) {
-    throw new Error('ACCOUNT_ADDRESS must be a 20-byte Ethereum address');
-  }
-  const weiHex = await rpc('eth_getBalance', [address, 'latest']);
-  const wei = BigInt(weiHex);
-  const etherWhole = wei / 10n ** 18n;
-  const etherFraction = String(wei % 10n ** 18n).padStart(18, '0');
-  console.log('Balance (ETH):', `${etherWhole}.${etherFraction}`);
-}
-```
-
