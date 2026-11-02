@@ -53,7 +53,7 @@ Tác giả xây dựng `SimpleCoin` trên Remix IDE để giới thiệu Solidit
 **Mã nguồn gốc đầy đủ của Listing 1.1:** [`code/chapter1/SimpleCoin_Original_2019.sol`](code/chapter1/SimpleCoin_Original_2019.sol).  
 **Bản điều chỉnh để thực hành hiện đại:** [`code/chapter1/SimpleCoin_Modern.sol`](code/chapter1/SimpleCoin_Modern.sol).
 
-> **Chú ý bảo mật:** Ví dụ gốc cố ý đơn giản, không kiểm tra đủ số dư; với Solidity 0.4.x có nguy cơ tràn số khi chuyển quá số dư. Không dùng để quản lý tiền thật. Bản hiện đại thêm `require`, tự cấp token cho tài khoản deploy và phát `Transfer` event.
+> Ví dụ gốc cố ý đơn giản, không kiểm tra đủ số dư; với Solidity 0.4.x có nguy cơ tràn số khi chuyển quá số dư. Không dùng để quản lý tiền thật. Bản hiện đại thêm `require`, tự cấp token cho tài khoản deploy và phát `Transfer` event.
 
 ## 2. Chương 2 — Understanding the Blockchain
 
@@ -114,7 +114,7 @@ flowchart TD
 
 ## 4. Tài liệu tham khảo
 
-1. Roberto Infante (2019), *Building Ethereum Dapps: Decentralized Applications on the Ethereum Blockchain*, Manning, Chương 1–2 (PDF được giảng viên cung cấp).
+1. Roberto Infante (2019), *Building Ethereum Dapps: Decentralized Applications on the Ethereum Blockchain*, Manning
 2. [Ethereum Developer Documentation](https://ethereum.org/developers/docs/).
 3. [Remix IDE](https://remix.ethereum.org/).
 4. [Solidity Documentation](https://docs.soliditylang.org/).
